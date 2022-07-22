@@ -20,4 +20,18 @@ public class Driver : MonoBehaviour
         transform.Rotate(0, 0, -steerAmount);
         transform.Translate(0, carSpeed, 0);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "SpeedUps")
+        {
+            Debug.Log("The speed Increased!!");
+            moveSpeed += 1f;
+        }
+        else if (other.tag == "SlowDowns")
+        {
+            Debug.Log("The speed Decreased");
+            moveSpeed -= 1f;
+        }
+    }
 }
